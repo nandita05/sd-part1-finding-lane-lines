@@ -2,8 +2,6 @@
 
 ## Writeup Template
 
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
 ---
 
 **Finding Lane Lines on the Road**
@@ -23,11 +21,20 @@ The goals / steps of this project are the following:
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
+The lane pipline creation process consisted of a list of steps. 
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
+Initially I imported packages which would be required to call helper functions. 
+Upon iterating on all images inside the test_images folder, I performed various opertations on each one of them.
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+First step was to convert images to Grayscale so that identification of edges would become easier. 
+Then I applied Gaussian blur to elimiate blurry areas, and canny function to identify the bright edges. 
+After this step, depending on the image's shape :height and width, I defined my area of interest by defining vertices.
+
+Then I used predefined hough_lines function to draw hough lines along the region of interest.
+After this, I copied the images with pipeline on lanes in output folder.
+
+After doing this for eachof the test images, I used the function process_image to work on the solidRightWhite and solidYellowLeft videos. 
+
 
 ![alt text][image1]
 
@@ -35,13 +42,11 @@ If you'd like to include images to show how the pipeline works, here is how to i
 ### 2. Identify potential shortcomings with your current pipeline
 
 
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
+One  shortcoming is the pipeline does not detect the curved lines properly whenever the road is turning. 
+Also the detected lines also tend to merge sometimes at the end and are flickery
 
 
 ### 3. Suggest possible improvements to your pipeline
 
 A possible improvement would be to ...
-
-Another potential improvement could be to ...
+Find a method to enable detection of line when the road bends and in different terrains.
