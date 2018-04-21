@@ -36,9 +36,6 @@ After this, I copied the images with pipeline on lanes in output folder.
 After doing this for eachof the test images, I used the function process_image to work on the solidRightWhite and solidYellowLeft videos. 
 
 
-![alt text][image1]
-
-
 ### 2. Identify potential shortcomings with your current pipeline
 
 
@@ -50,3 +47,5 @@ Also the detected lines also tend to merge sometimes at the end and are flickery
 
 A possible improvement would be to ...
 Find a method to enable detection of line when the road bends and in different terrains.
+
+I went through Udacity's Q&A session on this project to understand the flow of code and purpose of few predefined functions used in the code.
